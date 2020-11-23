@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Schema;
 
 namespace Morze2._0
 {
@@ -60,7 +61,18 @@ namespace Morze2._0
         }
         static void Nyolcadik()
         {
+            int max = idezetek[0].Hossz;
+            int melyik = 0;
+            for (int i = 0; i < idezetek.Count; i++)
+            {
+                if (idezetek[i].Hossz > max)
+                {
+                    max = idezetek[i].Hossz;
+                    melyik = i;
+                }
+            }
 
+            Console.WriteLine($"8.Feladat: A leghosszab idézet szerzője és az idézet: {idezetek[melyik].Szerzo}: {idezetek[melyik].Idezet}");
         }
         static string morze2szöveg(string kodolt)
         {
@@ -87,6 +99,7 @@ namespace Morze2._0
             Negyedik();
             Otodik();
             Hetedik();
+            Nyolcadik();
 
             Console.ReadKey();
         }
