@@ -93,6 +93,7 @@ namespace Morze2._0
                 iro.WriteLine($"{i.Szerzo}:{i.Idezet}");
             }
             iro.Close();
+            //Véletlen volt
         }
         static string morze2szöveg(string kodolt)
         {
