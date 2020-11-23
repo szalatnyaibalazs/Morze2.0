@@ -74,6 +74,26 @@ namespace Morze2._0
 
             Console.WriteLine($"8.Feladat: A leghosszab idézet szerzője és az idézet: {idezetek[melyik].Szerzo}: {idezetek[melyik].Idezet}");
         }
+        static void Kilencedik()
+        {
+            Console.WriteLine("9.feladat: Arisztotelész idézetei:");
+            foreach (var i in idezetek)
+            {
+                if (i.Szerzo == "ARISZTOTELÉSZ")
+                {
+                    Console.WriteLine($"\t- {i.Idezet}");
+                }
+            }
+        }
+        static void Tizedik()
+        {
+            StreamWriter iro = new StreamWriter("forditas.txt");
+            foreach (var i in idezetek)
+            {
+                iro.WriteLine($"{i.Szerzo}:{i.Idezet}");
+            }
+            iro.Close();
+        }
         static string morze2szöveg(string kodolt)
         {
             StringBuilder vissza = new StringBuilder();
@@ -100,6 +120,8 @@ namespace Morze2._0
             Otodik();
             Hetedik();
             Nyolcadik();
+            Kilencedik();
+            Tizedik();
 
             Console.ReadKey();
         }
