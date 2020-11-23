@@ -40,10 +40,25 @@ namespace Morze2._0
             }
             else
             {
-                Console.WriteLine("Nem található a kódtárban ilyen karakter");
+                Console.WriteLine("\tNem található a kódtárban ilyen karakter");
             }
         }
         static void Otodik()
+        {
+            StreamReader be = new StreamReader("morze.txt");
+            while (!be.EndOfStream)
+            {
+                string[] a = be.ReadLine().Split(';');
+                string szerzo = a[0].Trim();
+                string idezet = a[1].Trim();
+                idezetek.Add(new Szoveg(morze2szöveg(szerzo),morze2szöveg(idezet)));
+            }
+        }
+        static void Hetedik()
+        {
+            Console.WriteLine($"7. Feladat: Az első idézet szerzője: {idezetek[0].Szerzo}");
+        }
+        static void Nyolcadik()
         {
 
         }
@@ -70,6 +85,8 @@ namespace Morze2._0
             abcbeolvasas();
             Harmadik();
             Negyedik();
+            Otodik();
+            Hetedik();
 
             Console.ReadKey();
         }
